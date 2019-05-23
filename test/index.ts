@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { getInlineStyles, setStyle } from "../src/index";
+import { setStyle } from "../src/index";
 
 let testElement: Element;
 

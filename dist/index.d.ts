@@ -1,6 +1,8 @@
-declare type StyleObject = {
-    [key: string]: string;
-};
-export declare function getStyles(element: Element): CSSStyleDeclaration | StyleObject | undefined;
-export declare function setStyle(element: Element, propertyName: string, value: string | null): void;
-export {};
+/**
+ * Sets a new value for a property on the inline style of the element.
+ * @param element
+ * @param propertyName Representing the CSS property name (hyphen case) to be modified.
+ * @param newValue The new property value. If not specified, treated as the empty string.
+ * @param overwrite
+ */
+export declare function setStyle(element: Element, propertyName: string, newValue: string | null, overwrite?: boolean): void;
