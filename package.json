@@ -1,6 +1,6 @@
 {
   "name": "style-element-instance",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "set inline styles for any elment instance",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

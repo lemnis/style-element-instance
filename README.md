@@ -18,9 +18,9 @@ npm install --save-dev style-element-instance
 # Example
 
 ```js
-import getPseudoContent from "style-element-instance";
+import { setStyle } from "style-element-instance";
 
-getPseudoContent(document.body, "::before");
+setStyle(document.body, "background", "green");
 ```
 
 [npm]: https://img.shields.io/npm/v/style-element-instance.svg
