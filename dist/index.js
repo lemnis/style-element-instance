@@ -5,11 +5,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @param element
  * @param propertyName Representing the CSS property name (hyphen case) to be modified.
  * @param newValue The new property value. If not specified, treated as the empty string.
- * @param overwrite
+ * @param overwrite Set to false when you want to have multiple values for one property, used for defining fallbacks.
  */
 function setStyle(element, propertyName, newValue, overwrite) {
     if (overwrite === void 0) { overwrite = true; }
-    if (element.style && !overwrite)
+    if (element.style && overwrite && !newValue)
         return element.style.setProperty(propertyName, newValue);
     var inlineCssText = element.getAttribute("style") || "";
     if (!newValue) {
@@ -19,7 +19,7 @@ function setStyle(element, propertyName, newValue, overwrite) {
                 if (property)
                     property = property.trim();
                 if (property !== propertyName)
-                    result += "; " + propertyName + ":" + value;
+                    result += "; " + property + ":" + value;
             }
             return result;
         }, "");

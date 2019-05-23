@@ -3,7 +3,7 @@
  * @param element
  * @param propertyName Representing the CSS property name (hyphen case) to be modified.
  * @param newValue The new property value. If not specified, treated as the empty string.
- * @param overwrite
+ * @param overwrite Set to false when you want to have multiple values for one property, used for defining fallbacks.
  */
 export function setStyle(
   element: Element,
@@ -11,7 +11,7 @@ export function setStyle(
   newValue: string | null,
   overwrite = true
 ) {
-  if ((element as HTMLElement).style && !overwrite)
+  if ((element as HTMLElement).style && overwrite && !newValue)
     return (element as HTMLElement).style.setProperty(propertyName, newValue);
 
   let inlineCssText = element.getAttribute("style") || "";
@@ -21,7 +21,7 @@ export function setStyle(
       if (cssText) {
         let [property, value] = cssText.split(":");
         if (property) property = property.trim();
-        if (property !== propertyName) result += `; ${propertyName}:${value}`;
+        if (property !== propertyName) result += `; ${property}:${value}`;
       }
       return result;
     }, "");

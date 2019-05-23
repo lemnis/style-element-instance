@@ -64,22 +64,34 @@ for (const { title, namespace, tagName } of testElements) {
         setStyle(
           testElement,
           "background-image",
-          "-webkit-linear-gradient(45deg, red 0%, blue 100%);"
+          "-webkit-linear-gradient(45deg, red 0%, blue 100%);",
+          false
         );
         setStyle(
           testElement,
           "background-image",
-          "-moz-linear-gradient(45deg, red 0%, blue 100%);"
+          "-moz-linear-gradient(45deg, red 0%, blue 100%);",
+          false
         );
         setStyle(
           testElement,
           "background-image",
-          "-ms-linear-gradient(45deg, red 0%, blue 100%);"
+          "-ms-linear-gradient(45deg, red 0%, blue 100%);",
+          false
         );
-        setStyle(testElement, "background-image", "foo");
+        setStyle(testElement, "background-image", "foo", false);
         expect(getComputedStyle(testElement).backgroundImage).to.have.string(
           "linear-gradient"
         );
+      });
+
+      it("should keep other inline styles when one is removed", () => {
+        testElement.setAttribute(
+          "style",
+          "background-color: rgb(0, 255, 0); color: rgb(255, 0, 0)"
+        );
+        setStyle(testElement, "background-color", null);
+        expect(getComputedStyle(testElement).color).to.equal("rgb(255, 0, 0)");
       });
     });
   });
