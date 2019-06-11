@@ -1,6 +1,6 @@
 {
   "name": "style-element-instance",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "set inline styles for any elment instance",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -42,8 +42,5 @@
     "ts-loader": "^5.4.5",
     "typescript": "^3.4.5",
     "webpack": "^4.32.0"
-  },
-  "dependencies": {
-    "karma-mocha-reporter": "^2.2.5"
   }
 }

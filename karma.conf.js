@@ -35,7 +35,7 @@ module.exports = function(config) {
       "test/**/*.ts": ["webpack", "sourcemap"]
     },
     webpack,
-    reporters: ["mocha", "coverage-istanbul", "BrowserStack"],
+    reporters: ["dots", "coverage-istanbul", "BrowserStack"],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
